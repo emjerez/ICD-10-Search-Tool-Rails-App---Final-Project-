@@ -5,6 +5,8 @@ class CreateCodes < ActiveRecord::Migration[5.1]
       t.string :title
       t.string :billable
 
+      t.references :parent, index: true
+
       t.timestamps
     end
   end

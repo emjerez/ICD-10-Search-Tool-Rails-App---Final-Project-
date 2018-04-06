@@ -19,8 +19,10 @@ ActiveRecord::Schema.define(version: 20180406201510) do
     t.string "code"
     t.string "title"
     t.string "billable"
+    t.bigint "parent_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["parent_id"], name: "index_codes_on_parent_id"
   end
 
   create_table "exclusions", force: :cascade do |t|
