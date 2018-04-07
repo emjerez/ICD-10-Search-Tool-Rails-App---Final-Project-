@@ -7,6 +7,14 @@ class PagesController < ApplicationController
     @pages = Page.all
   end
 
+  def indexShow
+    @pages = Page.all
+  end
+
+  def indexToS
+    @pages = Page.all
+  end
+
   # GET /pages/1
   # GET /pages/1.json
   def show
