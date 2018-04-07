@@ -9,7 +9,6 @@
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended that you check this file into your version control system.
-
 ActiveRecord::Schema.define(version: 20180407214951) do
 
   # These are extensions that must be enabled in order to support this database
@@ -26,6 +25,7 @@ ActiveRecord::Schema.define(version: 20180407214951) do
     t.text "excludes1"
     t.text "excludes2"
     t.string "parent_id"
+    t.text "inclusionTerm"
   end
 
   create_table "exclusions", force: :cascade do |t|
