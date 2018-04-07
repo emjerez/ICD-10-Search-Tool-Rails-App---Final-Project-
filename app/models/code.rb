@@ -1,5 +1,6 @@
 class Code < ApplicationRecord
   serialize :includes
+  serialize :inclusionTerm
   serialize :excludes1
   serialize :excludes2
   # belongs_to :parent, :class_name => "Code", :join_table => :relationships, foreign_key: :child_id

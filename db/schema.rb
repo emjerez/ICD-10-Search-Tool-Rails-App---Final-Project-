@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180407191245) do
+ActiveRecord::Schema.define(version: 20180407214734) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20180407191245) do
     t.text "excludes1"
     t.text "excludes2"
     t.string "parent_id"
+    t.text "inclusionTerm"
   end
 
   create_table "exclusions", force: :cascade do |t|
