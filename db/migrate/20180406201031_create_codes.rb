@@ -3,7 +3,6 @@ class CreateCodes < ActiveRecord::Migration[5.1]
     create_table :codes do |t|
       t.string :code
       t.string :title
-      t.string :billable
 
       t.references :parent, index: true
 

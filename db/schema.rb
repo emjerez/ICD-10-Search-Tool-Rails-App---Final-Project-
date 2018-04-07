@@ -10,19 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180406201510) do
+ActiveRecord::Schema.define(version: 20180407191245) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "codes", force: :cascade do |t|
-    t.string "code"
-    t.string "title"
-    t.string "billable"
-    t.bigint "parent_id"
+    t.string "code_id"
+    t.string "desc"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["parent_id"], name: "index_codes_on_parent_id"
+    t.string "chapter"
+    t.string "section_name"
+    t.text "includes"
+    t.text "excludes1"
+    t.text "excludes2"
+    t.string "parent_id"
   end
 
   create_table "exclusions", force: :cascade do |t|
@@ -58,6 +61,13 @@ ActiveRecord::Schema.define(version: 20180406201510) do
     t.datetime "updated_at", null: false
     t.index ["code_id"], name: "index_recents_on_code_id"
     t.index ["user_id"], name: "index_recents_on_user_id"
+  end
+
+  create_table "relationships", id: false, force: :cascade do |t|
+    t.integer "parent_id"
+    t.integer "child_id"
+    t.index ["child_id", "parent_id"], name: "index_relationships_on_child_id_and_parent_id", unique: true
+    t.index ["parent_id", "child_id"], name: "index_relationships_on_parent_id_and_child_id", unique: true
   end
 
   create_table "users", force: :cascade do |t|
