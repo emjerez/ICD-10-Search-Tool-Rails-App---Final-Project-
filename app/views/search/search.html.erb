@@ -1,0 +1,19 @@
+<h1>Code Search</h1>
+
+<%= form_for search_path, method: :get do |f| %>
+  <p>
+    <%= f.label "Enter an ICD-10 code or description.." %>
+    <%= text_field_tag :q, params[:q] %>
+    <%= submit_tag "Search", name: nil %>
+  </p>
+<% end %>
+
+<ul>
+  <% @codes.records.each do |code| %>
+    <li>
+      <h3>
+        <%= link_to code.desc, controller: "codes", action: "show", id: code.code_id%>
+      </h3>
+    </li>
+  <% end %>
+</ul>
